@@ -1,8 +1,7 @@
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import AddUserView from './views/AddUserView';
-import SettingsView from './views/SettingsView';
-import HomeView from './views/HomeView' 
+import { BrowserRouter } from "react-router-dom";
+
 import NavBar from "./components/NavBar";
+import AppRoutes from "./components/AppRoutes";
 
 
 function App() {
@@ -10,13 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <div>
-        <Routes>
-          <Route path="/" element={<HomeView />} />
-          <Route path="/add_user" element={<AddUserView />} />
-          <Route path="/settings" element={<SettingsView />} />
-        </Routes>
-      </div>
+      <AppRoutes />
     </BrowserRouter>
   );
 }
