@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import HomeView from './views/HomeView' 
 
 function App() {
 
   return (
-    <h1>Hello world</h1>
-  )
+    <HomeView />
+  );
 }
 
-export default App
+export default App;
