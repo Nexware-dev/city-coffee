@@ -5,12 +5,14 @@ function UserList({data}) {
     return (
         <div>
             {data.map((item) => (
-                <Link to={`/user_detail/${item.id}`} key={item.id}>
-                    <div style={{border: "1px solid black"}}>
-                        <h2>{item.name} {item.surname}</h2>
-                        <p>{item.email}</p>
-                    </div>
-                </Link>
+                <div style={{width: "200px", border: "1px solid black", margin: "auto"}}>
+                    <Link to={`/user_detail/${item.id}`} key={item.id}>
+                        <div style={{textAlign: "center"}}>
+                            <h2>{item.name} {item.surname}</h2>
+                            <p>{item.email}</p>
+                        </div>
+                    </Link>
+                </div>
                 ))}
         </div>
     );
