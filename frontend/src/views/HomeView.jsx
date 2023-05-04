@@ -8,6 +8,7 @@ import React, { useState, useEffect } from 'react';
 function HomeView() {
 
     const [searchTerm, setSearchTerm] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleSearch = (event) => {
         setSearchTerm(event.target.value);
@@ -17,10 +18,20 @@ function HomeView() {
         user.name.toLocaleLowerCase().startsWith(searchTerm.toLocaleLowerCase())
     );
 
+    // Error message when no user mathes the searched term
+    useEffect(() => {
+        if (searchedList.length === 0) {
+            setErrorMessage("No users found")
+        } else {
+            setErrorMessage("")
+        }
+    }, [searchedList]);
+
+
     return (
         <div>
             <SearchBar search={searchTerm} onSearch={handleSearch}/>
-            <UserList data={searchedList} />
+            <UserList searchedList={searchedList} errorMessage={errorMessage}/>
         </div>
     );
 }
