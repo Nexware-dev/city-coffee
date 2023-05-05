@@ -5,9 +5,9 @@ function SettingsView() {
     const [test, setTest] = useState("placeholder") 
 
     useEffect(() => {
-        fetch("/")
+        fetch("http://localhost:5000/")
         .then(response => response.json())
-        .then(data => setTest(data))
+        .then(data => setTest(data.greetings))
     }, [])
 
     return (
