@@ -5,16 +5,11 @@ app = Flask(__name__)
 CORS(app)
 
 
-@app.route("/")
-def hello():
-    return jsonify({"greetings": "hello"})
-
-
 @app.route("/add_user_form", methods=["POST"])
 def add_user_form():
     """Add a new user to the database"""
     # TODO: Connect the database and add the user
-    
+
     name = request.json["name"]
     surname = request.json["surname"]
     email = request.json["email"]
