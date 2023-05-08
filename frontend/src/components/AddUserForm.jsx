@@ -23,9 +23,21 @@ function AddUserForm() {
             alert("Please enter a valid email address");
             return;
         }
+
+        fetchUserData();
     };
 
-    // TODO: Fetch data to database
+    const fetchUserData = () => {
+        fetch("http://localhost:5000/add_user_form", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name, surname, email })
+        })
+        .then(response => response.json())
+        .then(data => alert(data))
+    };
 
     return (
         <div>
