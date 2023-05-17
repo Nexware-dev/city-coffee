@@ -8,9 +8,6 @@ function AddUserForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setName("");
-        setSurname("");
-        setEmail("");
 
         // Validates whether all fields are filled before submitting the form.
         if (!name || !surname || !email) {
@@ -35,8 +32,16 @@ function AddUserForm() {
             },
             body: JSON.stringify({ name, surname, email })
         })
-        .then(response => response.json())
-        .then(data => alert(data))
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.success) {
+                console.log("success")
+                setName("");
+                setSurname("");
+                setEmail("");
+            }
+            alert(data.message);
+        }); 
     };
 
     return (
