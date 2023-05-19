@@ -1,14 +1,27 @@
-import users from "../components/UserListData";
-
 import SearchBar from '../components/SearchBar';
 import UserList from '../components/UserList';
 
+import { useLocation } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 
 function HomeView() {
 
+    const location = useLocation();
+
     const [searchTerm, setSearchTerm] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/get_all_users")
+        .then((response) => response.json())
+        .then((data) => {
+           if (data.succes) {
+            setUsers(data.users)
+           }
+        });
+    }, [location])
 
     const handleSearch = (event) => {
         setSearchTerm(event.target.value);
