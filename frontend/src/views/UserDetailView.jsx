@@ -1,7 +1,7 @@
 import CoffeeStamps from "../components/CoffeeStamps";
 import UserInfo from "../components/UserInfo";
 
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 
@@ -25,11 +25,11 @@ function UserDetailView() {
         .then((response) => response.json())
         .then((data) => {
             if (data.success) {
-                setName(data.name)
-                setSurname(data.username)
-                setEmail(data.email)
-                setCount(data.count)
-            } 
+                setName(data.user.name)
+                setSurname(data.user.surname)
+                setEmail(data.user.email)
+                setCount(data.user.count)
+            }
         });
     }, [])
 
