@@ -127,6 +127,51 @@ def get_all_users():
         return jsonify(response)
 
 
+@app.route("/get_current_user", methods=["POST"])
+def get_current_user():
+    """Get user with a given ID"""
+    user_id = request.json["user_id"]
+
+    try:
+        # Connect to the database
+        conn = sqlite3.connect(DATABASE_NAME)
+        cursor = conn.cursor()
+
+        # Retrieve the current user from the 'users' table
+        select_query = '''
+            SELECT * FROM users WHERE id = ?
+        '''
+
+        cursor.execute(select_query, (user_id,))
+        user = cursor.fetchone()
+
+        conn.close()
+
+        user_dict = {
+            "id": user[0],
+            "name": user[1],
+            "surname": user[2],
+            "email": user[3],
+            "count": user[4]
+        }
+
+        response = {
+            "success": True,
+            "user": user_dict
+        }
+
+        return jsonify(response)
+
+    except:
+        # Return response indicating failure
+        response = {
+            "success": False,
+            "message": "Failed to retrieve the current user"
+        }
+        return jsonify(response)
+
+
+
 if __name__ == "__main__":
     create_users_table()  # Create the 'users' table if it doesn't exist
     #delete_users_table() # Delete the 'users' table if it exists
