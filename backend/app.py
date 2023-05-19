@@ -80,6 +80,51 @@ def add_user_form():
             "message": f"User with email {email} already exists"
         }
         return jsonify(response)
+    
+
+@app.route("/get_all_users", methods=["GET"])
+def get_all_users():
+    """Get all users from the 'users' table"""
+    try:
+        # Connect to the database
+        conn = sqlite3.connect(DATABASE_NAME)
+        cursor = conn.cursor()
+
+        # Retrieve all users from the 'users' table
+        select_query = '''
+            SELECT * FROM users
+        '''
+
+        cursor.execute(select_query)
+        users = cursor.fetchall()
+
+        conn.close()
+
+        users_list = []
+        for user in users:
+            user_dict = {
+                "id": user[0],
+                "name": user[1],
+                "surname": user[2],
+                "email": user[3],
+                "count": user[4]
+            }
+            users_list.append(user_dict)
+
+        response = {
+            "succes": True,
+            "users": users_list
+        }
+
+        return jsonify(response)
+
+    except:
+        # Return response indicating failure
+        response = {
+            "success": False,
+            "message": "Failed to retrieve users"
+        }
+        return jsonify(response)
 
 
 if __name__ == "__main__":
