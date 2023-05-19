@@ -12,7 +12,7 @@ function UserDetailView() {
     const [surname, setSurname] = useState("");
     const [email, setEmail] = useState("");
 
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
 
     useEffect(() => {
         fetch("http://localhost:5000/get_current_user", {
