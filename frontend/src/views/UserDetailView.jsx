@@ -36,7 +36,7 @@ function UserDetailView() {
     return (
         <div>
             <UserInfo name={name} surname={surname} email={email} />
-            <CoffeeStamps count={count} />
+            <CoffeeStamps count={count} user_id={user_id} setCount={setCount}/>
         </div>
     );
 }

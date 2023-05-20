@@ -171,6 +171,43 @@ def get_current_user():
         return jsonify(response)
 
 
+@app.route("/update_counter", methods=["POST"])
+def update_counter():
+    """Update user counter"""
+    user_id = request.json["user_id"]
+    current_counter = request.json["currentCounter"]
+
+    try:
+        # Connect to the database
+        conn = sqlite3.connect(DATABASE_NAME)
+        cursor = conn.cursor()
+
+        update_query = '''
+            UPDATE users SET count = ? WHERE id = ?
+        '''
+
+        cursor.execute(update_query, (current_counter, user_id))
+        conn.commit()
+
+        # Close the database connection
+        conn.close()
+
+        # Return response indicating success
+        response = {
+            "success": True,
+            "message": "User count was updated"
+        }
+        return jsonify(response)
+
+    except Exception as e:
+        # Handle specific exceptions and provide error details
+        response = {
+            "success": False,
+            "message": f"Failed to update the current user counter: {str(e)}"
+        }
+        return jsonify(response)
+
+
 
 if __name__ == "__main__":
     create_users_table()  # Create the 'users' table if it doesn't exist
