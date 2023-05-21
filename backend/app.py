@@ -175,7 +175,7 @@ def get_current_user():
 def update_counter():
     """Update user counter"""
     user_id = request.json["user_id"]
-    current_counter = request.json["currentCounter"]
+    current_counter = request.json["newCounter"]
 
     try:
         # Connect to the database
