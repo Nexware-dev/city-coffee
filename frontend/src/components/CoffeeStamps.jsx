@@ -48,6 +48,7 @@ function CoffeeStamps({ count, setCount, user_id }) {
           <button key={index}
                   onClick={() => handleClick(index)}
                   style={{ backgroundColor: markedStamps.includes(index) ? "green" : "gray" }}
+                  disabled={index > count}
           >Button number: {index}</button>
         ))
       }
