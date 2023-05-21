@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-
-// TODO: connect the COFFEE_NUMBER_REQUIRED variable from the settings
-const COFFEE_NUMBER_REQUIRED = 6;
+import { COFFEE_REQURED } from "../views/UserDetailView";
 
 function CoffeeStamps({ count, setCount, user_id }) {
 
@@ -9,7 +7,7 @@ function CoffeeStamps({ count, setCount, user_id }) {
 
   useEffect(() => {
     // Initialize marked stamps based on the count
-    const initialStamps = Array.from({ length: COFFEE_NUMBER_REQUIRED })
+    const initialStamps = Array.from({ length: COFFEE_REQURED })
       .map((_, index) => index)
       .filter((item) => item < count);
     setMarkedStamps(initialStamps);
@@ -43,7 +41,7 @@ function CoffeeStamps({ count, setCount, user_id }) {
 
   return (
     <div>
-      {Array.from({ length: COFFEE_NUMBER_REQUIRED })
+      {Array.from({ length: COFFEE_REQURED })
         .map((_, index) => (
           <button key={index}
                   onClick={() => handleClick(index)}
@@ -52,7 +50,6 @@ function CoffeeStamps({ count, setCount, user_id }) {
           >Button number: {index}</button>
         ))
       }
-      <p>{markedStamps}</p>
     </div>
   )
 }

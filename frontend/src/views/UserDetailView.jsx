@@ -5,7 +5,7 @@ import UserInfo from "../components/UserInfo";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const COFFEE_REQURED = 6;
+export const COFFEE_REQURED = 6;
 
 function UserDetailView() {
     const { user_id } = useParams();
