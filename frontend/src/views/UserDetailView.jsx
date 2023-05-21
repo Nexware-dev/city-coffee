@@ -1,9 +1,11 @@
+import CoffeeClaim from "../components/CoffeeClaim";
 import CoffeeStamps from "../components/CoffeeStamps";
 import UserInfo from "../components/UserInfo";
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+const COFFEE_REQURED = 6;
 
 function UserDetailView() {
     const { user_id } = useParams();
@@ -37,6 +39,7 @@ function UserDetailView() {
         <div>
             <UserInfo name={name} surname={surname} email={email} />
             <CoffeeStamps count={count} user_id={user_id} setCount={setCount}/>
+            <CoffeeClaim user_id={user_id} setCount={setCount} disabled={count === COFFEE_REQURED ? false : true }/>
         </div>
     );
 }

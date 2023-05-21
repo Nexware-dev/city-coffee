@@ -208,6 +208,41 @@ def update_counter():
         return jsonify(response)
 
 
+@app.route("/reset_count", methods=["POST"])
+def reset_count():
+    """Reset user count."""
+    try:
+        user_id = request.json["user_id"]
+
+        # Connect to the database
+        conn = sqlite3.connect(DATABASE_NAME)
+        cursor = conn.cursor()
+
+        reset_query = '''
+            UPDATE users SET count = 0 WHERE id = ?
+        '''
+
+        cursor.execute(reset_query, (user_id,))
+        conn.commit()
+
+        # Close the database connection
+        conn.close()
+
+        response = {
+            "success": True,
+            "message": "User count was reset successfully."
+        }
+        return jsonify(response)
+    
+    except Exception as e:
+        # Handle specific exceptions and provide error details
+        response = {
+            "success": False,
+            "message": f"Failed to reset the user count: {str(e)}"
+        }
+        return jsonify(response)
+
+
 
 if __name__ == "__main__":
     create_users_table()  # Create the 'users' table if it doesn't exist
