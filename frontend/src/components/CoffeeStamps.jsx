@@ -9,7 +9,7 @@ function CoffeeStamps({ count, setCount, user_id }) {
     // Initialize marked stamps based on the count
     const initialStamps = Array.from({ length: COFFEE_REQURED })
       .map((_, index) => index)
-      .filter((item) => item < count);
+      .filter((item) => item < count % COFFEE_REQURED);
     setMarkedStamps(initialStamps);
   }, [count])
 
@@ -19,21 +19,21 @@ function CoffeeStamps({ count, setCount, user_id }) {
     setMarkedStamps(newStamps);
 
     // Update the count
-    const newCounter = count + (markedStamps.includes(index) ? -1 : 1);
-    setCount(newCounter);
+    const changeCounter = markedStamps.includes(index) ? -1 : 1;
+    setCount((prevCount) => prevCount + changeCounter);
 
     // Update the counter on the server
-    handleCounterUpdate(newCounter);
+    handleCounterUpdate(changeCounter);
   }
 
-  const handleCounterUpdate = (newCounter) => {
+  const handleCounterUpdate = (changeCounter) => {
     // Send a request to update the counter on the server
     fetch("http://localhost:5000/update_counter", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({newCounter, user_id}),
+      body: JSON.stringify({changeCounter, user_id}),
     })
       .then((response) => response.json())
       .then((data) => console.log(data))
@@ -46,7 +46,7 @@ function CoffeeStamps({ count, setCount, user_id }) {
           <button key={index}
                   onClick={() => handleClick(index)}
                   style={{ backgroundColor: markedStamps.includes(index) ? "green" : "gray" }}
-                  disabled={index > count}
+                  disabled={index > count % COFFEE_REQURED}
           >Button number: {index}</button>
         ))
       }

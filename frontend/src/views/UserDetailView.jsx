@@ -39,7 +39,7 @@ function UserDetailView() {
         <div>
             <UserInfo name={name} surname={surname} email={email} />
             <CoffeeStamps count={count} user_id={user_id} setCount={setCount}/>
-            <CoffeeClaim user_id={user_id} setCount={setCount} disabled={count === COFFEE_REQURED ? false : true }/>
+            <CoffeeClaim />
         </div>
     );
 }

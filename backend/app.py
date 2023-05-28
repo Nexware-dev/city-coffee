@@ -175,18 +175,28 @@ def get_current_user():
 def update_counter():
     """Update user counter"""
     user_id = request.json["user_id"]
-    current_counter = request.json["newCounter"]
+    change_counter = request.json["changeCounter"]
 
     try:
         # Connect to the database
         conn = sqlite3.connect(DATABASE_NAME)
         cursor = conn.cursor()
 
+        # Retrieve the current count from the database
+        select_query = '''
+            SELECT count FROM users WHERE id = ?
+        '''
+        cursor.execute(select_query, (user_id,))
+        current_counter = cursor.fetchone()[0]
+
+        # Calculate the new count based on the change_counter
+        new_counter = current_counter + change_counter
+
+        # Update the count in the database
         update_query = '''
             UPDATE users SET count = ? WHERE id = ?
         '''
-
-        cursor.execute(update_query, (current_counter, user_id))
+        cursor.execute(update_query, (new_counter, user_id))
         conn.commit()
 
         # Close the database connection
@@ -206,42 +216,6 @@ def update_counter():
             "message": f"Failed to update the current user counter: {str(e)}"
         }
         return jsonify(response)
-
-
-@app.route("/reset_count", methods=["POST"])
-def reset_count():
-    """Reset user count."""
-    try:
-        user_id = request.json["user_id"]
-
-        # Connect to the database
-        conn = sqlite3.connect(DATABASE_NAME)
-        cursor = conn.cursor()
-
-        reset_query = '''
-            UPDATE users SET count = 0 WHERE id = ?
-        '''
-
-        cursor.execute(reset_query, (user_id,))
-        conn.commit()
-
-        # Close the database connection
-        conn.close()
-
-        response = {
-            "success": True,
-            "message": "User count was reset successfully."
-        }
-        return jsonify(response)
-    
-    except Exception as e:
-        # Handle specific exceptions and provide error details
-        response = {
-            "success": False,
-            "message": f"Failed to reset the user count: {str(e)}"
-        }
-        return jsonify(response)
-
 
 
 if __name__ == "__main__":
