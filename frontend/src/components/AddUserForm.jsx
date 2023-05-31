@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import "../assets/styles/components/AddUserForm.css";
+
 function AddUserForm() {
 
     const [name, setName] = useState("");

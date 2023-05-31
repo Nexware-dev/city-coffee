@@ -1,3 +1,5 @@
+import "../assets/styles/views/SettingsView.css";
+
 function SettingsView() {
     
     return (

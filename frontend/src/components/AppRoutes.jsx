@@ -5,6 +5,9 @@ import SettingsView from '../views/SettingsView';
 import HomeView from '../views/HomeView' 
 import UserDetailView from '../views/UserDetailView' 
 
+import "../assets/styles/components/AppRoutes.css";
+
+
 
 function AppRoutes() {
     return (

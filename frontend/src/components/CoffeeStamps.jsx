@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { COFFEE_REQURED } from "../views/UserDetailView";
+import "../assets/styles/components/CoffeeStamps.css";
+
 
 function CoffeeStamps({ count, setCount, user_id }) {
 

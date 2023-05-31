@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "../assets/styles/components/UserList.css";
 
 function UserList({searchedList, errorMessage}) {
 

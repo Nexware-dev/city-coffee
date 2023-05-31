@@ -1,3 +1,5 @@
+import "../assets/styles/components/UserInfo.css";
+
 function UserInfo({ name, surname, email }) {
   return (
     <div>

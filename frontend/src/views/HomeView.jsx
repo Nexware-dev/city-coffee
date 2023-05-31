@@ -4,6 +4,8 @@ import UserList from '../components/UserList';
 import { useLocation } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 
+import "../assets/styles/views/HomeView.css";
+
 function HomeView() {
 
     const location = useLocation();

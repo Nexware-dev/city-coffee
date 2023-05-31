@@ -1,3 +1,5 @@
+import "../assets/styles/components/SearchBar.css";
+
 function SearchBar({search, onSearch}) {
 
    return (
