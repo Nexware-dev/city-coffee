@@ -1,25 +1,21 @@
 import { Link } from "react-router-dom";
-import "../assets/styles/components/UserList.css";
 
 function UserList({searchedList, errorMessage}) {
-
-    return (
-        <div style={{padding: "10px 150px"}}>
-
-            {searchedList.length === 0 && 
-                <h1>{errorMessage}</h1>
-            }
-
-            {searchedList.map((item) => (
-                <Link to={`/user_detail/${item.id}`} key={item.id}>
-                    <div style={{border: "1px solid black", textAlign: "center", margin: "10px"}}>
+    const renderUserList = () => {
+        if (searchedList.length === 0) {
+            return <h1>{errorMessage}</h1>
+        } else {
+            return searchedList.map((item) => (
+                <Link to={`/user_detail/${item.id}`} key={item.id} className="user-list-link">
+                    <div className="user-card">
                         <h2>{item.name} {item.surname}</h2>
                         <p>{item.email}</p>
                     </div>
-                </Link>
-                ))}
-        </div>
-    );
+              </Link>
+           ));
+        }
+    };
+    return <div className="user-list-container">{renderUserList()}</div>;
 }
 
 export default UserList;

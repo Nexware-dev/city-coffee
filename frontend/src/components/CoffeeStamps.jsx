@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { COFFEE_REQURED } from "../views/UserDetailView";
-import "../assets/styles/components/CoffeeStamps.css";
 
 
 function CoffeeStamps({ count, setCount, user_id }) {
@@ -47,7 +46,7 @@ function CoffeeStamps({ count, setCount, user_id }) {
         .map((_, index) => (
           <button key={index}
                   onClick={() => handleClick(index)}
-                  style={{ backgroundColor: markedStamps.includes(index) ? "green" : "gray" }}
+                  className={`button-item ${markedStamps.includes(index) ? "green" : "gray"}`}
                   disabled={index > count % COFFEE_REQURED}
           >Button number: {index}</button>
         ))

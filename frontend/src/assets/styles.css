@@ -1,0 +1,253 @@
+/* Global styles */
+:root {
+    --primary-color: #754e30;
+    --primary-color-light: #9a7350;
+    --accent-color: #ae7c58;
+    --text-color: #333;
+    --placeholder-color: #999;
+    --background-color: #a68f75;
+  }
+  
+  body {
+    background-color: var(--background-color);
+  }
+  
+  /* NavBar.css */
+  #header {
+    background-color: var(--primary-color);
+    padding: 10px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .nav-item {
+    margin-right: 10px;
+  }
+  
+  .nav-item:last-child {
+    margin-right: 0;
+  }
+  
+  .nav-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    background-color: var(--accent-color);
+  }
+  
+  .nav-link.active {
+    background-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  
+  /* SearchBar.css */
+  .search-bar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  
+  .search-bar-label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+  
+  .search-bar-input {
+    padding: 8px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 14px;
+    width: 400px;
+    transition: border-color 0.3s ease;
+    color: var(--text-color);
+  }
+  
+  .search-bar-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px rgba(174, 124, 88, 0.3);
+  }
+  
+  .search-bar-input::placeholder {
+    color: var(--placeholder-color);
+  }
+  
+  .search-bar-input:hover,
+  .search-bar-input:focus {
+    border-color: var(--accent-color);
+  }
+  
+  .search-bar-input:focus::placeholder {
+    color: transparent;
+  }
+  
+  
+  /* UserList.css */
+  .user-list-container {
+    padding: 10px 150px;
+  }
+  
+  .user-list-link {
+    text-decoration: none;
+  }
+  
+  .user-card {
+    border: 1px solid var(--primary-color);
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    background-color: var(--primary-color);
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+  }
+  
+  .user-card:hover {
+    background-color: var(--accent-color);
+  }
+  
+  .user-card h2 {
+    margin-bottom: 10px;
+    color: var(--text-color);
+  }
+  
+  .user-card p {
+    color: var(--text-color);
+  }
+  
+  
+  /* UserForm.css */
+  .user-form-container {
+    max-width: 400px;
+    margin: 50px auto;
+  }
+  
+  form {
+    border: 1px solid var(--primary-color);
+    padding: 50px;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+  }
+  
+  fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--text-color);
+  }
+  
+  input[type="text"],
+  input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: var(--primary-color-light);
+  }
+  
+  
+  /* UserInfo.css */
+  .user-info-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  
+  .info-item {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  span {
+    margin-left: 10px;
+  }
+  
+  
+  /* ButtonList.css */
+  .button-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .button-item {
+    margin: 5px;
+    padding: 10px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button-item.green {
+    background-color: green;
+  }
+  
+  .button-item:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  

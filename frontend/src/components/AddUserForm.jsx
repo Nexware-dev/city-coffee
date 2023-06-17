@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-import "../assets/styles/components/AddUserForm.css";
-
 function AddUserForm() {
 
     const [name, setName] = useState("");
@@ -47,13 +45,12 @@ function AddUserForm() {
     };
 
     return (
-        <div>
+        <div className="user-form-container">
             <form onSubmit={handleSubmit}>
                 <fieldset>
-
                     <legend>User Information</legend>
 
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="name">Name:</label>
                         <input 
                             type="text" 
@@ -65,7 +62,7 @@ function AddUserForm() {
                         />
                     </div>
 
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="surname">Surname:</label>
                         <input 
                             type="text" 
@@ -77,7 +74,7 @@ function AddUserForm() {
                         />
                     </div>
 
-                    <div>
+                    <div className="form-group">
                         <label htmlFor="email">Email:</label>
                         <input 
                             type="email" 
