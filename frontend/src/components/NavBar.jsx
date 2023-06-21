@@ -4,7 +4,7 @@ function NavBar() {
   const location = useLocation();
   
   return (
-    <header id="header">
+    <header>
       <nav>
         <ul className="nav-list">
           <li className="nav-item">

@@ -1,5 +1,8 @@
 /* Global styles */
 :root {
+    --header-height: 100px;
+    --bottom-border-height: 2px;
+
     --primary-color: #754e30;
     --primary-color-light: #9a7350;
     --accent-color: #ae7c58;
@@ -7,54 +10,47 @@
     --placeholder-color: #999;
     --background-color: #a68f75;
   }
-  
-  body {
-    background-color: var(--background-color);
-  }
-  
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
   /* NavBar.css */
-  #header {
-    background-color: var(--primary-color);
-    padding: 10px;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .nav-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  .nav-item {
-    margin-right: 10px;
-  }
-  
-  .nav-item:last-child {
-    margin-right: 0;
-  }
-  
-  .nav-link {
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 3px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .nav-link:hover {
-    background-color: var(--accent-color);
-  }
-  
-  .nav-link.active {
-    background-color: var(--accent-color);
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  }
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--primary-color);
+}
+
+.nav-item {
+  display: inline-flex;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 30px;
+  color: white;
+  transition: all 0.3s ease 0s;
+  height: var(--header-height);
+  width: 200px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: var(--bottom-border-height) solid transparent;
+}
+
+.nav-link:hover {
+  color: blue;
+  border-bottom: var(--bottom-border-height) solid blue;
+}
   
   
   /* SearchBar.css */
