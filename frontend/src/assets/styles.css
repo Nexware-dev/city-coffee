@@ -1,33 +1,47 @@
-/* Global styles */
-:root {
-    --header-height: 100px;
-    --bottom-border-height: 2px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
-    --primary-color: #754e30;
-    --primary-color-light: #9a7350;
-    --accent-color: #ae7c58;
-    --text-color: #333;
-    --placeholder-color: #999;
-    --background-color: #a68f75;
+:root {
+    --header-height: 145px;
+    --logo-height: 70px;
+
+    --nav-link-underline-width: 80%;
+    --nav-link-underline-height: 5px;
+
+    --base-color: #CDD4D9;
+    --primary-color: #100800;
+    --secondary-color-light: rgb(181, 123, 40);
+    --secondary-color-dark: rgb(90, 57, 25);
+    --text-color: white;
   }
 
+/* Global styles */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
+body {
+  background-color: var(--base-color);
+}
 
-  /* NavBar.css */
+/* NavBar.css */
 header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
   top: 0;
   width: 100%;
+  min-width: 1000px;
   height: var(--header-height);
-  background-color: var(--primary-color);
+  background: var(--primary-color);
+  padding: 0 100px;
+}
+
+.logo {
+  height: var(--logo-height);
 }
 
 .nav-item {
@@ -37,22 +51,38 @@ header {
 .nav-link {
   text-decoration: none;
   font-size: 30px;
-  color: white;
+  color: var(--text-color);
   transition: all 0.3s ease 0s;
   height: var(--header-height);
   width: 200px;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border-bottom: var(--bottom-border-height) solid transparent;
+  position: relative;
 }
 
-.nav-link:hover {
-  color: blue;
-  border-bottom: var(--bottom-border-height) solid blue;
+.nav-link::before,
+.active::before {
+  background-image: -moz-linear-gradient(left, var(--secondary-color-dark), var(--secondary-color-light));
+  position: absolute;
+  content: "";
+  bottom: 0px;
+  left: calc(var(--nav-link-underline-width) / 2);
+  transform: translateX(calc(var(--nav-link-underline-width) / 2 *-1));
+  height: var(--nav-link-underline-height);
+  width: 0;
+  transition: all 0.25s ease 0s;
 }
-  
-  
+
+.nav-link:hover::before {
+  width: var(--nav-link-underline-width);
+}
+
+.active::before {
+  width: var(--nav-link-underline-width);
+}
+
+
   /* SearchBar.css */
   .search-bar-container {
     display: flex;
@@ -61,13 +91,13 @@ header {
     margin-bottom: 10px;
     margin-top: 10px;
   }
-  
+
   .search-bar-label {
     margin-right: 10px;
     font-weight: bold;
     color: var(--text-color);
   }
-  
+
   .search-bar-input {
     padding: 8px;
     border: 1px solid var(--primary-color);
@@ -77,36 +107,36 @@ header {
     transition: border-color 0.3s ease;
     color: var(--text-color);
   }
-  
+
   .search-bar-input:focus {
     outline: none;
     border-color: var(--accent-color);
     box-shadow: 0 0 5px rgba(174, 124, 88, 0.3);
   }
-  
+
   .search-bar-input::placeholder {
     color: var(--placeholder-color);
   }
-  
+
   .search-bar-input:hover,
   .search-bar-input:focus {
     border-color: var(--accent-color);
   }
-  
+
   .search-bar-input:focus::placeholder {
     color: transparent;
   }
-  
-  
+
+
   /* UserList.css */
   .user-list-container {
     padding: 10px 150px;
   }
-  
+
   .user-list-link {
     text-decoration: none;
   }
-  
+
   .user-card {
     border: 1px solid var(--primary-color);
     text-align: center;
@@ -117,57 +147,57 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
   }
-  
+
   .user-card:hover {
     background-color: var(--accent-color);
   }
-  
+
   .user-card h2 {
     margin-bottom: 10px;
     color: var(--text-color);
   }
-  
+
   .user-card p {
     color: var(--text-color);
   }
-  
-  
+
+
   /* UserForm.css */
   .user-form-container {
     max-width: 400px;
     margin: 50px auto;
   }
-  
+
   form {
     border: 1px solid var(--primary-color);
     padding: 50px;
     background-color: var(--accent-color);
     border-radius: 5px;
   }
-  
+
   fieldset {
     border: none;
     padding: 0;
     margin: 0;
   }
-  
+
   legend {
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 10px;
   }
-  
+
   .form-group {
     margin-bottom: 15px;
   }
-  
+
   label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
     color: var(--text-color);
   }
-  
+
   input[type="text"],
   input[type="email"] {
     width: 100%;
@@ -176,7 +206,7 @@ header {
     border-radius: 5px;
     font-size: 14px;
   }
-  
+
   button[type="submit"] {
     padding: 10px 20px;
     background-color: var(--primary-color);
@@ -186,12 +216,12 @@ header {
     font-size: 16px;
     cursor: pointer;
   }
-  
+
   button[type="submit"]:hover {
     background-color: var(--primary-color-light);
   }
-  
-  
+
+
   /* UserInfo.css */
   .user-info-container {
     max-width: 400px;
@@ -201,25 +231,25 @@ header {
     border: 1px solid #ccc;
     border-radius: 5px;
   }
-  
+
   h1 {
     font-size: 1.5em;
     margin-bottom: 20px;
   }
-  
+
   .info-item {
     margin-bottom: 10px;
   }
-  
+
   label {
     font-weight: bold;
   }
-  
+
   span {
     margin-left: 10px;
   }
-  
-  
+
+
   /* ButtonList.css */
   .button-list-container {
     display: flex;
@@ -227,7 +257,7 @@ header {
     justify-content: center;
     margin-top: 20px;
   }
-  
+
   .button-item {
     margin: 5px;
     padding: 10px;
@@ -237,13 +267,12 @@ header {
     border-radius: 5px;
     cursor: pointer;
   }
-  
+
   .button-item.green {
     background-color: green;
   }
-  
+
   .button-item:disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
-  

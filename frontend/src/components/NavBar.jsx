@@ -5,6 +5,9 @@ function NavBar() {
   
   return (
     <header>
+      <Link to="/">
+        <img className="logo" src="../../public/city-coffee-logo.png" alt="logo"></img>
+      </Link>
       <nav>
         <ul className="nav-list">
           <li className="nav-item">
