@@ -42,7 +42,7 @@ function HomeView() {
 
 
     return (
-        <div>
+        <div className="content-wrapper">
             <SearchBar search={searchTerm} onSearch={handleSearch}/>
             <UserList searchedList={searchedList} errorMessage={errorMessage}/>
         </div>
