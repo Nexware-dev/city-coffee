@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import "./assets/styles.css";
+
 import NavBar from "./components/NavBar";
 
-import "./assets/styles.css";
 import HomeView from "./views/HomeView";
 import AddUserView from "./views/AddUserView";
 import SettingsView from "./views/SettingsView";
