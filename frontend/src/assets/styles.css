@@ -7,6 +7,10 @@
     --nav-link-underline-width: 80%;
     --nav-link-underline-height: 5px;
 
+    --element-border-radius: 20px;
+
+    --user-card-height: 100px;
+
     --base-color: #CDD4D9;
     --primary-color: #100800;
     --secondary-color-light: rgb(181, 123, 40);
@@ -103,7 +107,7 @@ header {
 .search-bar-line {
   position: fixed;
   width: 100%;
-  height: calc(var(--header-height) / 3);
+  height: var(--header-height);
   top: calc(var(--header-height) * 2);
   background: linear-gradient(to top, rgba(205, 212, 217, 0.1), rgba(205, 212, 217, 1));
 }
@@ -113,7 +117,7 @@ header {
   height: 70px;
   margin-left: 10px;
   border: 3px solid var(--secondary-color-dark);
-  border-radius: 25px;
+  border-radius: var(--element-border-radius);
   padding-left: 20px;
   font-size: 20px;
 }
@@ -138,5 +142,30 @@ header {
 
 /* UserList.css */
 .user-list-container {
-  margin-top: calc(var(--header-height) * 2);
+  margin-top: calc(var(--header-height) * 3);
+}
+
+.user-list-link {
+  text-decoration: none;
+  color: var(--text-color);
+  display: block;
+}
+
+.user-card {
+  background-color: var(--primary-color);
+  margin: 20px 50px;
+  border-radius: var(--element-border-radius);
+  height: var(--user-card-height);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-card:hover {
+  background: -moz-linear-gradient(top, var(--secondary-color-dark), var(--secondary-color-light));
+}
+
+.no-user-found-message {
+  text-align: center;
 }

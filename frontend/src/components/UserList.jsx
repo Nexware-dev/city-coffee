@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function UserList({searchedList, errorMessage}) {
     const renderUserList = () => {
         if (searchedList.length === 0) {
-            return <h1>{errorMessage}</h1>
+            return <h1 className="no-user-found-message">{errorMessage}</h1>
         } else {
             return searchedList.map((item) => (
                 <Link to={`/user_detail/${item.id}`} key={item.id} className="user-list-link">
