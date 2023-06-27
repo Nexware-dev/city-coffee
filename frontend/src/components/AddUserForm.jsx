@@ -46,47 +46,52 @@ function AddUserForm() {
 
     return (
         <div className="user-form-container">
-            <form onSubmit={handleSubmit}>
-                <fieldset>
-                    <legend>User Information</legend>
+            <form className="user-form" onSubmit={handleSubmit}>
+                <fieldset className="user-form-fieldset">
 
                     <div className="form-group">
-                        <label htmlFor="name">Name:</label>
+                        <label className="add-user-label" htmlFor="name">Name:</label>
                         <input 
+                            className="add-user-input"
                             type="text" 
                             id="name" 
                             name="name"
                             value={name}
                             onChange={(e) => setName(e.target.value)} 
-                            required 
+                            required
+                            autoComplete="off"
                         />
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="surname">Surname:</label>
+                        <label className="add-user-label" htmlFor="surname">Surname:</label>
                         <input 
+                            className="add-user-input"
                             type="text" 
                             id="surname" 
                             name="surname" 
                             value={surname}
                             onChange={(e) => setSurname(e.target.value)} 
                             required 
+                            autoComplete="off"
                         />
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="email">Email:</label>
+                        <label className="add-user-label" htmlFor="email">Email:</label>
                         <input 
+                            className="add-user-input"
                             type="email" 
                             id="email" 
                             name="email" 
                             value={email}
                             onChange={(e) => setEmail(e.target.value)} 
                             required 
+                            autoComplete="off"
                         />
                     </div>
 
-                    <button type="submit">Submit</button>
+                    <button className="add-user-button" type="submit">Submit</button>
 
                 </fieldset>
             </form>

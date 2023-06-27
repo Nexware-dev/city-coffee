@@ -163,3 +163,77 @@ header {
 .no-user-found-message {
   text-align: center;
 }
+
+
+/* AddUserForm.jsx */
+.user-form-container {
+  position: fixed;
+  top: calc(var(--header-height) * 2);
+  color: var(--text-color);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.user-form-fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.user-form {
+  margin: 0 50px;
+  background-color: var(--primary-color);
+  padding: 50px;
+  border-radius: var(--element-border-radius);
+}
+
+.form-group {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-user-input {
+  flex: 1;
+  height: 70px;
+  margin-left: 10px;
+  border: 3px solid var(--secondary-color-dark);
+  border-radius: var(--element-border-radius);
+  padding-left: 20px;
+  font-size: 20px;
+  outline: none;
+}
+
+.add-user-input:hover,
+.search-bar-input:focus {
+  border-color: var(--secondary-color-light);
+}
+
+.add-user-label {
+  font-size: 20px;
+}
+
+.add-user-button {
+  margin-top: 20px;
+  background: linear-gradient(to left, var(--secondary-color-dark), var(--secondary-color-light));
+  color: var(--text-color);
+  border: none;
+  border-radius: var(--element-border-radius);
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-position 0.3s ease;
+  background-size: 200% auto;
+  background-position: 100% 0;
+}
+
+.add-user-button:hover {
+  background-position: 0 0;
+}
+
+

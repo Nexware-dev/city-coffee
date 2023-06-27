@@ -2,7 +2,7 @@ import AddUserForm from "../components/AddUserForm";
 
 function AddUserView() {
     return (
-        <div>
+        <div className="content-wrapper">
             <AddUserForm />
         </div>
     );
