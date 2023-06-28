@@ -1,4 +1,3 @@
-import CoffeeClaim from "../components/CoffeeClaim";
 import CoffeeStamps from "../components/CoffeeStamps";
 import UserInfo from "../components/UserInfo";
 
