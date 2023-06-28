@@ -36,10 +36,9 @@ function UserDetailView() {
     }, [])
 
     return (
-        <div>
+        <div className="content-wrapper">
             <UserInfo name={name} surname={surname} email={email} />
             <CoffeeStamps count={count} user_id={user_id} setCount={setCount}/>
-            <CoffeeClaim />
         </div>
     );
 }

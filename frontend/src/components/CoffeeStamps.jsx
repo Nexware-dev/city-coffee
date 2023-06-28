@@ -41,14 +41,14 @@ function CoffeeStamps({ count, setCount, user_id }) {
   };
 
   return (
-    <div>
+    <div className="stamps-wrapper">
       {Array.from({ length: COFFEE_REQURED })
         .map((_, index) => (
           <button key={index}
                   onClick={() => handleClick(index)}
-                  className={`button-item ${markedStamps.includes(index) ? "green" : "gray"}`}
+                  className={`button-item ${markedStamps.includes(index) ? "clicked" : "unclicked"}`}
                   disabled={index > count % COFFEE_REQURED}
-          >Button number: {index}</button>
+          >{index + 1}</button>
         ))
       }
     </div>
